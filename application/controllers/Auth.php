@@ -55,6 +55,7 @@ class Auth extends MY_Controller
                 redirect('auth/profile');
             }
         } else {
+            echo "gagal";
             $this->session->set_flashdata('msg', show_err_msg('validation_errors()'));
             redirect('auth/profile');
         }
@@ -167,7 +168,7 @@ class Auth extends MY_Controller
                 'email'       => $query->email,
                 'phone'       => $query->phone,
                 'photo'       => $query->photo,
-                'created_on'  => $query->created_on,
+                'created_at'  => $query->created_at,
                 'last_login'  => $query->last_login
             );
             $this->session->set_userdata($userdata);

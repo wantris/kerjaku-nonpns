@@ -13,9 +13,30 @@ class Aktivitas_model extends CI_Model
         return $query;
     }
 
+    function tampil_edit_pegawai($where, $table)
+    {
+        return $this->db->get_where($table, $where);
+    }
+
+    public function tampil_from_pegawai()
+    {
+        $this->db->select('tbl_aktivitas.id as id_ak, tbl_aktivitas.*, tbl_user.*');
+        $this->db->from('tbl_aktivitas');
+        $this->db->join('tbl_user', 'tbl_user.id = tbl_aktivitas.id_user');
+        $this->db->where('tbl_aktivitas.id_user', $this->session->userdata('id'));
+        $query = $this->db->get();
+        return $query;
+    }
+
     public function save($data)
     {
         return $this->db->insert($this->table, $data);
+    }
+
+    function update_data($where, $data, $table)
+    {
+        $this->db->where($where);
+        $this->db->update($table, $data);
     }
 
     // public function cari($nip)

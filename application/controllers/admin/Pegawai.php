@@ -33,6 +33,7 @@ class Pegawai extends MY_Controller
             $data['last_name'] = $this->input->post('last_name');
             $data['email'] = $this->input->post('email');
             $data['phone'] = $this->input->post('phone');
+            $data['password'] = $pw;
             $data['activated'] = '1';
 
             $this->Pegawai_model->save($data);

@@ -34,10 +34,16 @@
       <!-- Optionally, you can add icons to the links -->
       <li class="active"><a href="<?= base_url() ?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
       <li><a href="<?php echo base_url() ?>auth/profile/<?php echo $this->session->userdata('id_user'); ?>"><i class="fa fa-user"></i> <span>profile</span></a></li>
-      <li><a href="<?php echo base_url() ?>Pegawai/Aktivitas/index/<?php echo $this->session->userdata('id_user'); ?>"><i class="fa fa-shopping-bag"></i> <span>Aktivitas</span></a></li>
-      <li><a href="<?php echo base_url() ?>Admin/Skp/index/<?php echo $this->session->userdata('id_user'); ?>"><i class="fa fa-shopping-bag"></i> <span>Target SKP</span></a></li>
-
-      <li><a href="<?php echo base_url('admin/pegawai/index') ?>"><i class="fa fa-user"></i> <span>Pegawai</span></a></li>
+      <?php
+      if ($this->session->userdata('id_role') === "1") {
+      ?>
+        <li><a href="<?php echo base_url() ?>Admin/Aktivitas/index/<?php echo $this->session->userdata('id_user'); ?>"><i class="fa fa-shopping-bag"></i> <span>Aktivitas</span></a></li>
+        <li><a href="<?php echo base_url() ?>Admin/Skp/index/<?php echo $this->session->userdata('id_user'); ?>"><i class="fa fa-shopping-bag"></i> <span>Target SKP</span></a></li>
+        <li><a href="<?php echo base_url('admin/pegawai/index') ?>"><i class="fa fa-user"></i> <span>Pegawai</span></a></li>
+      <?php } else { ?>
+        <li><a href="<?php echo base_url() ?>Pegawai/Aktivitas/index/<?php echo $this->session->userdata('id_user'); ?>"><i class="fa fa-shopping-bag"></i> <span>Aktivitas</span></a></li>
+        <li><a href="<?php echo base_url() ?>pegawai/Skp/index/<?php echo $this->session->userdata('id_user'); ?>"><i class="fa fa-shopping-bag"></i> <span>Target SKP</span></a></li>
+      <?php } ?>
       <li class="treeview" style="height: auto;">
         <a href="#">
           <i class="fa fa-share"></i> <span>Multilevel</span>

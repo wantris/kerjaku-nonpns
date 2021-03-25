@@ -7,14 +7,14 @@ class Home extends MY_Controller
     {
         parent::__construct();
         $this->check_login();
-        if ($this->session->userdata('id_role') != "3") {
+        if ($this->session->userdata('id_role') != "2") {
             redirect('', 'refresh');
         }
     }
 
     public function index()
     {
-        $data = konfigurasi('Dashboard');
-        $this->template->load('layouts/template', 'admin/dashboard', $data);
+        $data['data'] = konfigurasi('Dashboard');
+        $this->template->load('layouts/template', 'pegawai/dashboard', $data);
     }
 }
