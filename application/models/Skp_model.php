@@ -45,6 +45,11 @@ class Skp_model extends CI_Model
         $this->db->update($table, $data);
     }
 
+    function cari_pegawai($where, $table)
+    {
+        return $this->db->get_where($table, $where);
+    }
+
     public function hapus($nip)
     {
         $this->db->where('nip', $nip);

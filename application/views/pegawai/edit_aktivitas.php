@@ -25,7 +25,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="date" value="<?= $ak->tanggal ?> " class="form-control" name="tanggal">
+                                        <input type="date" value="<?= $ak->tanggal ?>" class="form-control" name="tanggal">
                                     </div>
                                     <!-- /.input group -->
                                 </div>

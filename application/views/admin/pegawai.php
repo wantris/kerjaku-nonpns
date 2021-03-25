@@ -24,11 +24,12 @@
                                     <th>Email</th>
                                     <th>Telepon</th>
                                     <th>Bidang</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($pegawai as $item) :
+                                foreach ($pegawai->result() as $item) :
                                 ?>
                                     <tr>
                                         <td><?= $item->id ?></td>
@@ -36,7 +37,12 @@
                                         <td><?= $item->nik ?></td>
                                         <td><?= $item->email ?></td>
                                         <td><?= $item->phone ?></td>
-                                        <td><?= $item->id_bidang ?></td>
+                                        <td><?= $item->bidang ?></td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="<?php echo site_url('Admin/Pegawai/delete/' . $item->id_user) ?>" class="btn btn-danger">Hapus</a>
+                                            </div>
+                                        </td>
                                     </tr>
                                 <?php
                                 endforeach;
@@ -50,6 +56,7 @@
                                     <th>Email</th>
                                     <th>Telepon</th>
                                     <th>Bidang</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </tfoot>
                         </table>

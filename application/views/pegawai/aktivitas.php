@@ -13,6 +13,7 @@
                 <div class="active tab-pane" id="settings">
                     <div class="box-header">
                         <h3 class="box-title font-weight-bold">Aktivitas Pegawai</h3>
+                        <a href="<?= base_url('pegawai/aktivitas/export') ?>" style="float: right;" class="btn btn-primary" target="_blank">Export</a>
                     </div>
                     <div class="box-body">
                         <table id="example1" class="table table-bordered table-striped">

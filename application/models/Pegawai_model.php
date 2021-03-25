@@ -6,7 +6,11 @@ class Pegawai_model extends CI_Model
   private $table = "tbl_user";
   public function tampil()
   {
-    return $this->db->get($this->table)->result();
+    $this->db->select('tbl_user.id as id_user, tbl_user.*, tbl_bidang.*');
+    $this->db->from('tbl_user');
+    $this->db->join('tbl_bidang', 'tbl_bidang.id = tbl_user.id_bidang');
+    $query = $this->db->get();
+    return $query;
   }
 
   // public function cari($nip)
@@ -15,7 +19,7 @@ class Pegawai_model extends CI_Model
   //   $query = $this->db->get('user');
   //   if($query->num_rows() > 0) {
   //     return false;
-  //   } else {
+  //   } else { 
   //     return true;
   //   }
   // }

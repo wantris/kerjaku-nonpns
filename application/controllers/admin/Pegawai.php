@@ -58,4 +58,11 @@ class Pegawai extends MY_Controller
         }
         return $this->upload->data('file_name');
     }
+
+    function delete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('tbl_user');
+        redirect('admin/pegawai');
+    }
 }
